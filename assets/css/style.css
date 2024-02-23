@@ -1,0 +1,22 @@
+
+
+*{
+    background: black;
+    color: white;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+#timer{
+    display: flex;
+    justify-content: end;
+}
+
+#question-list{
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+}
