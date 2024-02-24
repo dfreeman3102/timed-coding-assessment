@@ -14,7 +14,7 @@ var timerEl = document.getElementById("timer");
 var timeLeft = 180;
 
 function setTime(){
-    timerEl.setAttribute("style", "display: content, justify-content: end");
+    timerEl.setAttribute("style", "display: content");
 
     var timerInterval = setInterval(function(){
         timeLeft--;
