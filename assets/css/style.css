@@ -10,13 +10,14 @@ h1{
     justify-content: center;
 }
 
-#timer{
-    display: flex;
-    justify-content: end;
-}
-
-#question-list{
+#start{
     display: flex;
     justify-content: center;
-    border: 1px solid white;
+}
+
+#start-btn{
+    width: 75px;
+    height: 50px;
+    font-size: px;
+    background-color: rgb(71, 71, 71);
 }
