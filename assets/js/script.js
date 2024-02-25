@@ -123,7 +123,8 @@ function resetAll() {
 };
 //When all questions are done, displays final score
 function showFinal() {
-
+    resetAll();
+    questionEl.innerHTML = `You scored ${timeLeft}`;
 }
 
 
@@ -151,6 +152,10 @@ function setTime() {
     var timerInterval = setInterval(function () {
         timeLeft--;
         timerEl.textContent = "Time Remaining: " + timeLeft;
+         if(timeLeft <= 0){
+        clearInterval(timerInterval);
+        showFinal();
+    }
     }, 1000);
 
 }
