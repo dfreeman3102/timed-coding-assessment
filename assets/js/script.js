@@ -4,10 +4,10 @@ var questions = [
     {
         question: "Question one example?",
         answers: [
-            { text: "Answer 1", correct: false },
-            { text: "Answer 2", correct: true },
-            { text: "Answer 3", correct: false },
-            { text: "Answer 4", correct: false },
+            { text: "Blan 1", correct: false },
+            { text: "ble 2", correct: true },
+            { text: "ble 3", correct: false },
+            { text: "ble 4", correct: false },
         ]
     },
     {
@@ -59,22 +59,38 @@ var questions = [
 
 // makes changes to the question and answers
 var body = document.body;
-
 var questionEl = document.getElementById("question");
-
+var answerBtns = document.getElementById("answer-buttons");
+var nextBtn = document.getElementById("nextBtn");
+var questionIndex = 0;
 
 function setQuestion() {
-
-
-
-
+    // sets questions 
+    var currentQuestion = questions[questionIndex];
+    var questionNum = questionIndex + 1;
+    questionEl.innerHTML = questionNum + ". " + currentQuestion.question;
+    //  sets answers
+    currentQuestion.answers.forEach(answer => {
+        var button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerBtns.appendChild(button);
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
 }
 
+function selectAnswer(e){
+
+}
 //Starts the questions and timer
 var startEl = document.getElementById("start-btn");
 
 function startQuiz() {
     startEl.setAttribute("style", "display:none");
+
     setTime();
 }
 
