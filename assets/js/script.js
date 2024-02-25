@@ -65,11 +65,12 @@ var nextBtn = document.getElementById("nextBtn");
 var questionIndex = 0;
 
 function setQuestion() {
-    // sets questions 
+    
+    // sets questions and displays on screen
     var currentQuestion = questions[questionIndex];
     var questionNum = questionIndex + 1;
     questionEl.innerHTML = questionNum + ". " + currentQuestion.question;
-    //  sets answers
+    //  sets answers and displays on screen
     currentQuestion.answers.forEach(answer => {
         var button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -80,11 +81,22 @@ function setQuestion() {
         }
         button.addEventListener("click", selectAnswer);
     });
+    
 }
 
 function selectAnswer(e){
-
+    var selectedAnswer = e.target;
+    var correctAnswer = selectedAnswer.dataset.correct === "true";
+    if (correctAnswer){
+        selectedAnswer.classList.add("correct");
+        timeLeft += 15;
+    }else{
+        selectedAnswer.classList.add("incorrect");
+        timeLeft -= 15;
+    }
 }
+
+
 //Starts the questions and timer
 var startEl = document.getElementById("start-btn");
 
