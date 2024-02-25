@@ -65,7 +65,7 @@ var nextBtn = document.getElementById("nextBtn");
 var questionIndex = 0;
 
 function setQuestion() {
-    
+
     // sets questions and displays on screen
     var currentQuestion = questions[questionIndex];
     var questionNum = questionIndex + 1;
@@ -76,24 +76,33 @@ function setQuestion() {
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerBtns.appendChild(button);
-        if(answer.correct){
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
     });
-    
+
 }
 
-function selectAnswer(e){
+function selectAnswer(e) {
     var selectedAnswer = e.target;
     var correctAnswer = selectedAnswer.dataset.correct === "true";
-    if (correctAnswer){
+    // if answer is correct, it adds 15 seconds, if wrong subs 15 seconds.
+    if (correctAnswer) {
         selectedAnswer.classList.add("correct");
         timeLeft += 15;
-    }else{
+    } else {
         selectedAnswer.classList.add("incorrect");
         timeLeft -= 15;
     }
+    // when an answer button is selected, all answers are disabled and time penalty/addition is finalized
+    Array.from(answerBtns.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextBtn.style.display = "block";
 }
 
 
