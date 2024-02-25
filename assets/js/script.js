@@ -65,7 +65,7 @@ var nextBtn = document.getElementById("nextBtn");
 var questionIndex = 0;
 
 function setQuestion() {
-
+    resetAll();
     // sets questions and displays on screen
     var currentQuestion = questions[questionIndex];
     var questionNum = questionIndex + 1;
@@ -105,7 +105,29 @@ function selectAnswer(e) {
     nextBtn.style.display = "block";
 }
 
+// moves question and answers to next question
+function nextQuestion() {
+    questionIndex++;
+    if (questionIndex < questions.length) {
+        setQuestion();
+    } else {
+        showFinal();
+    }
+}
+//Takes away old question and answers before allowing new items to appear
+function resetAll() {
+    nextBtn.style.display = "none";
+    while (answerBtns.firstChild) {
+        answerBtns.removeChild(answerBtns.firstChild);
+    }
+};
+//When all questions are done, displays final score
+function showFinal() {
 
+}
+
+
+nextBtn.addEventListener("click", nextQuestion);
 //Starts the questions and timer
 var startEl = document.getElementById("start-btn");
 
