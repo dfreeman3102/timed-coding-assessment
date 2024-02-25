@@ -1,24 +1,73 @@
+
+// This has all the questions with their respective answers, including true/false values
+var questions = [
+    {
+        question: "Question one example?",
+        answers: [
+            { text: "Answer 1", correct: false },
+            { text: "Answer 2", correct: true },
+            { text: "Answer 3", correct: false },
+            { text: "Answer 4", correct: false },
+        ]
+    },
+    {
+        question: "Question two example?",
+        answers: [
+            { text: "Answer 1", correct: true },
+            { text: "Answer 2", correct: false },
+            { text: "Answer 3", correct: false },
+            { text: "Answer 4", correct: false },
+        ]
+    },
+    {
+        question: "Question three example?",
+        answers: [
+            { text: "Answer 1", correct: false },
+            { text: "Answer 2", correct: false },
+            { text: "Answer 3", correct: true },
+            { text: "Answer 4", correct: false },
+        ]
+    },
+    {
+        question: "Question four example?",
+        answers: [
+            { text: "Answer 1", correct: false },
+            { text: "Answer 2", correct: false },
+            { text: "Answer 3", correct: false },
+            { text: "Answer 4", correct: true },
+        ]
+    },
+    {
+        question: "Question five example?",
+        answers: [
+            { text: "Answer 1", correct: false },
+            { text: "Answer 2", correct: true },
+            { text: "Answer 3", correct: false },
+            { text: "Answer 4", correct: false },
+        ]
+    },
+    {
+        question: "Question six example?",
+        answers: [
+            { text: "Answer 1", correct: true },
+            { text: "Answer 2", correct: false },
+            { text: "Answer 3", correct: false },
+            { text: "Answer 4", correct: false },
+        ]
+    },
+]
+
 // makes changes to the question and answers
 var body = document.body;
 
 var questionEl = document.getElementById("question");
-var a1E1 = document.createElement("button");
-var a1E2 = document.createElement("button");
-var a1E3 = document.createElement("button");
-var a1E4 = document.createElement("button");
 
 
 function setQuestion() {
-    questionEl.textContent = "Question 1"
-    a1E1.textContent = "Answer 1"
-    a1E2.textContent = "Answer 2"
-    a1E3.textContent = "Answer 3"
-    a1E4.textContent = "Answer 4"
 
-    body.appendChild(a1E1);
-    body.appendChild(a1E2);
-    body.appendChild(a1E3);
-    body.appendChild(a1E4);
+
+
+
 }
 
 //Starts the questions and timer
