@@ -63,7 +63,7 @@ var questionEl = document.getElementById("question");
 var answerBtns = document.getElementById("answer-buttons");
 var nextBtn = document.getElementById("nextBtn");
 var questionIndex = 0;
-
+var timeLeft = 180;
 function setQuestion() {
     resetAll();
     // sets questions and displays on screen
@@ -128,7 +128,8 @@ function showFinal() {
     var initials = prompt("Enter Initials To Save Progress")
     questionEl.innerHTML = `${initials}: ${timeLeft}`;
     retry.setAttribute("style", "display: block");
-    retry.addEventListener("click", );
+    retry.addEventListener("click", startQuiz);
+    timeLeft = 0;
 }
 
 
@@ -137,8 +138,10 @@ nextBtn.addEventListener("click", nextQuestion);
 var startEl = document.getElementById("start-btn");
 
 function startQuiz() {
+    questionIndex = 0;
+    timeLeft = 180;
     startEl.setAttribute("style", "display:none");
-
+    retry.setAttribute("style", "display: none")
     setTime();
     setQuestion();
 }
@@ -148,17 +151,17 @@ startEl.addEventListener("click", startQuiz);
 //function to make timer countdown
 var timerEl = document.getElementById("timer");
 
-var timeLeft = 180;
+
 
 function setTime() {
     timerEl.setAttribute("style", "display: content");
 
     var timerInterval = setInterval(function () {
         timeLeft--;
-        timerEl.textContent = "Time Remaining: " + timeLeft;
+        timerEl.textContent = "Time Remaining: " + timeLeft ;
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            showFinal();
+            timerEl.textContent = "Time Remaining: 0";
         }
     }, 1000);
 
