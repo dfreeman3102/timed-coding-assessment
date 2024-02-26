@@ -124,7 +124,8 @@ function resetAll() {
 //When all questions are done, displays final score
 function showFinal() {
     resetAll();
-    questionEl.innerHTML = `You scored ${timeLeft}`;
+        var initials = prompt("Enter Initials To Save Progress")
+    questionEl.innerHTML = `${initials}: ${timeLeft}`;
 }
 
 
