@@ -121,11 +121,14 @@ function resetAll() {
         answerBtns.removeChild(answerBtns.firstChild);
     }
 };
-//When all questions are done, displays final score
+//When all questions are done, displays final score, initials and a retry button.
+var retry = document.getElementById("retryBtn");
 function showFinal() {
     resetAll();
-        var initials = prompt("Enter Initials To Save Progress")
+    var initials = prompt("Enter Initials To Save Progress")
     questionEl.innerHTML = `${initials}: ${timeLeft}`;
+    retry.setAttribute("style", "display: block");
+    retry.addEventListener("click", );
 }
 
 
@@ -137,10 +140,10 @@ function startQuiz() {
     startEl.setAttribute("style", "display:none");
 
     setTime();
+    setQuestion();
 }
 
 startEl.addEventListener("click", startQuiz);
-startEl.addEventListener("click", setQuestion);
 
 //function to make timer countdown
 var timerEl = document.getElementById("timer");
@@ -153,10 +156,10 @@ function setTime() {
     var timerInterval = setInterval(function () {
         timeLeft--;
         timerEl.textContent = "Time Remaining: " + timeLeft;
-         if(timeLeft <= 0){
-        clearInterval(timerInterval);
-        showFinal();
-    }
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            showFinal();
+        }
     }, 1000);
 
 }
