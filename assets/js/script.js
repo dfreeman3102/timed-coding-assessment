@@ -196,8 +196,9 @@ function showFinal() {
     questionEl.innerHTML = `${initials}: ${timeLeft}`;
     retry.setAttribute("style", "display: block");
     retry.addEventListener("click", startQuiz);
-    //makes the timeLeft disappear so the showFinal function doesnt try to repeat and add a second pop-up
-    timerEl.remove();
+    //makes the timeLeft turn into a string on timer so the showFinal function doesnt try to repeat and add a second pop-up
+    timeLeft.toString;
+    timeLeft = "Time Remaining: 0";
 }
 
 
