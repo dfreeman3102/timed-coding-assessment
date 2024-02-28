@@ -139,6 +139,7 @@ function setQuestion() {
         var button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
+        button.setAttribute("style", "display:flex")
         answerBtns.appendChild(button);
         if (answer.correct) {
             button.dataset.correct = answer.correct;
@@ -154,9 +155,11 @@ function selectAnswer(e) {
     // if answer is correct, it adds 15 seconds, if wrong subs 15 seconds.
     if (correctAnswer) {
         selectedAnswer.classList.add("correct");
+        selectedAnswer.setAttribute("style", "background:green");
         timeLeft += 15;
     } else {
         selectedAnswer.classList.add("incorrect");
+        selectedAnswer.setAttribute("style", "background:red");
         timeLeft -= 15;
     }
     // when an answer button is selected, all answers are disabled and time penalty/addition is finalized
