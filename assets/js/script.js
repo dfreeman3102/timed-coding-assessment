@@ -196,8 +196,8 @@ function showFinal() {
     questionEl.innerHTML = `${initials}: ${timeLeft}`;
     retry.setAttribute("style", "display: block");
     retry.addEventListener("click", startQuiz);
-    //makes the timeLeft turn into a string on timer so the showFinal function doesnt try to repeat and add a second pop-up
-    timeLeft.toString = "Time Remaining: 0";
+    //makes the timeLeft disappear so the showFinal function doesnt try to repeat and add a second pop-up
+    timerEl.remove();
 }
 
 
@@ -207,7 +207,7 @@ var startEl = document.getElementById("start-btn");
 
 function startQuiz() {
     questionIndex = 0;
-    timeLeft = 30;
+    timeLeft = 180;
     startEl.setAttribute("style", "display:none");
     retry.setAttribute("style", "display: none")
     setTime();
