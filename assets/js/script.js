@@ -118,15 +118,7 @@ var questions = [
             { text: "It converts JS strings to objects", correct: true },
         ]
     },
-    {
-        question: "What is the purpose of setItem and getItem",
-        answers: [
-            { text: "These are used in storing and accessing localStorage", correct: true },
-            { text: "They allow you to access globalStorage", correct: false },
-            { text: "They access eventListeners for you", correct: false },
-            { text: "They do nothing", correct: false },
-        ]
-    },
+    
 ]
 
 // makes changes to the question and answers
