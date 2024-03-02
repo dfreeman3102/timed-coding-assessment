@@ -193,7 +193,10 @@ var retry = document.getElementById("retryBtn");
 function showFinal() {
     resetAll();
     var initials = prompt("Enter Initials To Save Progress")
-    questionEl.innerHTML = `${initials}: ${timeLeft}`;
+    var points = timeLeft;
+    var finalScore = [initials + ": " + points,]
+    questionEl.innerHTML = finalScore;
+    //retry button shows
     retry.setAttribute("style", "display: block");
     retry.addEventListener("click", startQuiz);
     //makes the timeLeft turn into a string on timer so the showFinal function doesnt try to repeat and add a second pop-up
